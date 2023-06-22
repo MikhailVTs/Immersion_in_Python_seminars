@@ -6,6 +6,6 @@ ___
 
 ***num = randint(LOWER_LIMIT, UPPER_LIMIT)*** 
 
-
+![017](image/017.png)
 ___
 ___
