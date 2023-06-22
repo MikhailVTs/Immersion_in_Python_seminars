@@ -10,7 +10,7 @@ if side_triangle_a + side_triangle_b > side_triangle_c and side_triangle_a + sid
 
     if side_triangle_a != side_triangle_b and side_triangle_a != side_triangle_c and side_triangle_b != side_triangle_c:
 
-        print("\nТакой треугольник назыается - Разносторонний")
+        print("\nТакой треугольник назыается - Разносторонний\n")
 
     elif side_triangle_a == side_triangle_b and side_triangle_b == side_triangle_c:
 
