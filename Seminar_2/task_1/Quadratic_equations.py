@@ -15,9 +15,9 @@ elif discriminant == 0:
 
     x = -value_2 / (2 * value_1)
 
-    result = f'Для этого уравнения существует один корень, это {x = }'
+    result = f"Для этого уравнения существует один корень, это {x = }"
 
-else: 
+else:
 
     discriminant = complex(discriminant, 0)
 
