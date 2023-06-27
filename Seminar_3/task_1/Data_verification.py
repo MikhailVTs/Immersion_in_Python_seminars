@@ -4,8 +4,8 @@
 
 # ✔ Целое положительное число
 # ✔ Вещественное положительное или отрицательное число
-# ✔ Строку в верхнем регистре, если в строке есть хотя бы одна заглавная буква
-# ✔ Строку в нижнем регистре в остальных случаях
+# ✔ Строку в нижнем регистре, если в строке есть хотя бы одна заглавная буква
+# ✔ Строку в верхнем регистре в остальных случаях
 
 
 
@@ -16,17 +16,19 @@ if data_entry.isdigit(): # ✔ Целое положительное число
     
     result = f"{data_entry} - Целое положительное число"
 
-elif data_entry.istitle():
-    
-    result = data_entry.upper() 
-
-elif data_entry == data_entry.lower(): 
-
-    result = data_entry.lower()
-
-elif float(data_entry) or float(data_entry) < 0: # ✔ Вещественное положительное или отрицательное число
+if float(data_entry) or float(data_entry) < 0: # ✔ Вещественное положительное или отрицательное число
     
     result = f"{data_entry} - Вещественное положительное или отрицательное число"
+
+else:
+    if data_entry.islower():
+        
+        result = data_entry.upper() 
+
+    # elif data_entry.isupper(): 
+    else:
+
+        result = data_entry.lower()
 
 
 
