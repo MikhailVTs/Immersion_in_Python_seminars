@@ -9,30 +9,29 @@
 
 
 
-data_entry = input("Введите данные: ")
+list_data_entry = [1, 2.3, -2.5, 'asd', 'asAsd']
 
+for i in range(len(list_data_entry)):
+    data_entry = list_data_entry[i]
+    print()
 
-if data_entry.isdigit(): # ✔ Целое положительное число
+    try:
+        if isinstance(data_entry, int): # ✔ Целое положительное число
+            
+            result = f"{data_entry} - Целое положительное число"
+
+        elif float(data_entry) or float(data_entry) < 0: # ✔ Вещественное положительное или отрицательное число
+            
+            result = f"{data_entry} - Вещественное положительное или отрицательное число"
     
-    result = f"{data_entry} - Целое положительное число"
+    except ValueError:
 
-if float(data_entry) or float(data_entry) < 0: # ✔ Вещественное положительное или отрицательное число
-    
-    result = f"{data_entry} - Вещественное положительное или отрицательное число"
+        if data_entry != data_entry.lower(): # ✔ Строку в нижнем регистре, если в строке есть хотя бы одна заглавная буква
+            
+            result = f"{data_entry.lower()} - Переводим строку в нижний регистр" 
 
-else:
-    if data_entry.islower():
-        
-        result = data_entry.upper() 
+        else: # ✔ Строку в верхнем регистре в остальных случаях
+            
+            result = f"{data_entry.upper()} - Переводим строку в верхний регистр" 
 
-    # elif data_entry.isupper(): 
-    else:
-
-        result = data_entry.lower()
-
-
-
-
-
-
-print(result)
+    print(result)
