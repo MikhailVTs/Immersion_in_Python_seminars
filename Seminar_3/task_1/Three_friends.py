@@ -9,8 +9,12 @@
 dict_friends_with_things = {"Ivan":("food", "sleeping_bag", "first_aid_kit"), "Petr":("knife", "food", "fishing_rod"), "Oleg":("food", "fishing_rod", "knife")}
 
 list_of_things = []
+list_of_unique_items = {}
 
-list_of_unique_items = []
+
+all_items = list(dict_friends_with_things.values())
+must_have_item = set(all_items[0])
+
 
 for key, value in dict_friends_with_things.items():
 
@@ -19,19 +23,19 @@ for key, value in dict_friends_with_things.items():
 print(f"\nСписок вещей, которые взяли друзья:\n{list_of_things}\n")
 
 
-for item in list_of_things:
+all_items = list(dict_friends_with_things.values())
 
-    count_elements = list_of_things.count(item)
+must_have_item = set(all_items[0])
+
+for value in all_items:
+
+    must_have_item = must_have_item.intersection(set(value))
+
+print(f"\nВещи, которые взяли каждый из друзей: \n{must_have_item}")
 
 
-    if count_elements > 1:
-         
-         for i in range(count_elements):
-           
+for key, value in dict_friends_with_things.items():
 
-
-
-            list_of_things.remove(item)
-      
-
-print(f"\n{list_of_things}")
+    list_of_unique_items[key] = set(value).difference(must_have_item)
+    
+print(f"\nУникальные вещи у друзей: \n{list_of_unique_items}")
