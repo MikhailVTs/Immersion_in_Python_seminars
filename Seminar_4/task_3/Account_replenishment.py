@@ -1,4 +1,5 @@
-import Menu 
+import Menu
+
 
 def account_replenishment():
     Menu.counter += 1
