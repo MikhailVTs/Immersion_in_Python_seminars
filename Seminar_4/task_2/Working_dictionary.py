@@ -13,16 +13,16 @@ def dict_kwargs(**kwargs):
     return dict_reverse
 
 
-
 def print_initial_data():
 
-        print('\nИсходные данные: \ncars=["Mercedes", "BMW", "Audi"], trees=["Oak", "Maple", "Aspen"], mobile_phone = {"Smartphone" : "Android", "Iphone": "IOS"}\n')
+    print(
+        '\nИсходные данные: \ncars=["Mercedes", "BMW", "Audi"], trees=["Oak", "Maple", "Aspen"], mobile_phone = {"Smartphone" : "Android", "Iphone": "IOS"}\n')
 
 
 def print_dict_reverse():
 
-        print(f'\nРезультат: \n{dict_kwargs(cars=["Mercedes", "BMW", "Audi"], trees=["Oak", "Maple", "Aspen"], mobile_phone = {"Smartphone" : "Android", "Iphone": "IOS"})}\n')
-
+    print(
+        f'\nРезультат: \n{dict_kwargs(cars=["Mercedes", "BMW", "Audi"], trees=["Oak", "Maple", "Aspen"], mobile_phone = {"Smartphone" : "Android", "Iphone": "IOS"})}\n')
 
 
 def main():
@@ -31,7 +31,5 @@ def main():
     print_dict_reverse()
 
 
-
 if __name__ == '__main__':
     main()
-    
