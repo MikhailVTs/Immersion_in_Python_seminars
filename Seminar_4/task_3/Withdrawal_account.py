@@ -1,5 +1,6 @@
 import Menu
 
+
 def withdrawal_account():
     percent = Menu.amount * Menu.commission
     percent = Menu.minimum_commission if percent < Menu.minimum_commission else Menu.maximum_commission if percent > Menu.maximum_commission else percent
@@ -11,4 +12,4 @@ def withdrawal_account():
     else:
         result = f'Недостаточно средств на Вашем счёте. Сумма с комиссией {Menu.amount + percent} руб. На Вашем счету {Menu.in_your_bank_account} руб.'
         Menu.list_result.append(result)
-    print(result)    
+    print(result)
