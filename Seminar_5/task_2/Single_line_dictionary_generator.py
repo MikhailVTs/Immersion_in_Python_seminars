@@ -1,6 +1,6 @@
 names = ["Геннадий", "Владимир", "Дмитрий"]
 salary = [58600, 72100, 36800]
-bonus = ['9.30%', '11.10%', '12.45%']
+bonus = ["9.30%", "11.10%", "12.45%"]
 
 
 def salary_gen(names: list[str], salary: list[int], bonus: list[str]) -> dict[str: float]:
