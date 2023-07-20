@@ -50,8 +50,8 @@ if __name__ == "__main__":
     print(
         f"\nСписок имён файлов до группового переименования файлов:\n{os.listdir(name_folder)}\n")
 
-    bulk_file_renaming('_new_file_', 3, '.txt', '.doc',
-                       [0, 4], f'./{name_folder}')
+    bulk_file_renaming("_new_file_", 3, ".txt", ".doc",
+                       [0, 4], f"./{name_folder}")
 
     print(
         f"Список имён файлов после группового переименования файлов:\n{os.listdir(name_folder)}\n")
