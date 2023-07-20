@@ -40,7 +40,6 @@ def create_files():
             ppt_file.write(f"Это ppt файл - № {i}")
 
 
-
 def getting_size(path):
 
     count = 0
@@ -65,17 +64,17 @@ def directory_crawler(path_to_folder):
 
             path_full = os.path.join(root, name)
             intelligence.append({"parent_directory": root,
-                            "is_file": True,
-                            "name": name,
-                            "size_in_bytes": os.path.getsize(path_full)})
+                                 "is_file": True,
+                                 "name": name,
+                                 "size_in_bytes": os.path.getsize(path_full)})
 
         for name in folders:
 
             path_full = os.path.join(root, name)
             intelligence.append({"parent_directory": root,
-                            "is_file": False,
-                            "name": name,
-                            "size_in_bytes": getting_size(path_full)})
+                                 "is_file": False,
+                                 "name": name,
+                                 "size_in_bytes": getting_size(path_full)})
 
     with open("info.json", "w") as file_json:
         json.dump(intelligence, file_json)
