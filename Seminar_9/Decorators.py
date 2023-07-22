@@ -1,15 +1,13 @@
-import math 
+import math
 import csv
 import json
 import random
-import math
 import functools
 
 
 def from_csv_decorator(func):
 
     @functools.wraps(func)
-
     def wrapper():
 
         results = []
@@ -25,35 +23,31 @@ def from_csv_decorator(func):
                 results.append(func(variable_a, variable_b, variable_c))
 
         return results
-    
+
     return wrapper
-  
 
-def find_roots(variable_a, variable_b, variable_c): 
- 
-    discriminant = variable_b * variable_b - 4 * variable_a * variable_c 
-    square_value = math.sqrt(abs(discriminant)) 
- 
- 
+
+def find_roots(variable_a, variable_b, variable_c):
+
+    discriminant = variable_b * variable_b - 4 * variable_a * variable_c
+    square_value = math.sqrt(abs(discriminant))
+
     if discriminant > 0:
-        
-        
-        x1 = (-variable_b + square_value) /(2 * variable_a) 
-        x2 = (-variable_b - square_value) /(2 * variable_a)  
-        return(x1, x2) 
 
- 
-    elif discriminant == 0: 
-        
-        x1 = -variable_b /(2 * variable_a) 
-        return(x1)
-    
-    else: 
+        x1 = (-variable_b + square_value) / (2 * variable_a)
+        x2 = (-variable_b - square_value) / (2 * variable_a)
+        return (x1, x2)
 
-        x1 = - variable_b /(2 * variable_a), " + i", square_value
-        x2 = - variable_b /(2 * variable_a), " - i", square_value
-        return(x1, x2)
-    
+    elif discriminant == 0:
+
+        x1 = -variable_b / (2 * variable_a)
+        return (x1)
+
+    else:
+
+        x1 = - variable_b / (2 * variable_a), " + i", square_value
+        x2 = - variable_b / (2 * variable_a), " - i", square_value
+        return (x1, x2)
 
 
 def csv_generate(file_name):
@@ -64,10 +58,7 @@ def csv_generate(file_name):
 
         for i in range(random.randint(100, 1001)):
 
-            writer.writerow([random.randint(1,100) for j in range(3)])
-
-
-
+            writer.writerow([random.randint(1, 100) for j in range(3)])
 
 
 def log_decorator(func):
@@ -75,21 +66,20 @@ def log_decorator(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         with open('info.json', 'a') as f:
-            json.dump({'func': func.__name__, 'args': args, 'kwargs': kwargs, 'result': result}, f)
+            json.dump({'func': func.__name__, 'args': args,
+                      'kwargs': kwargs, 'result': result}, f)
         return result
     return wrapper
-
-
-
 
 
 if __name__ == "__main__":
 
     file_name = "number.csv"
-    
-    csv_generate(file_name) 
 
-    print(f"\nФайл {file_name} с тремя случайными числами в каждой строке, сгенерирован!\n")
+    csv_generate(file_name)
+
+    print(
+        f"\nФайл {file_name} с тремя случайными числами в каждой строке, сгенерирован!\n")
 
     f = from_csv_decorator(find_roots)
     f()
@@ -100,5 +90,3 @@ if __name__ == "__main__":
     log_dec()
 
     print(f"\nДекоратор, сохраняющий переданные параметры и результаты работы функции в json файл. С работал!\n")
-
-    
