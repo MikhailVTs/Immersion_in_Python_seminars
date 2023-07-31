@@ -4,6 +4,7 @@ import json
 import random
 import functools
 
+
 class Decorators:
 
     def __init__(self, variable_a, variable_b, variable_c):
@@ -11,7 +12,6 @@ class Decorators:
         self.variable_a = variable_a
         self.variable_b = variable_b
         self.variable_c = variable_c
-
 
     def from_csv_decorator(func):
 
@@ -35,7 +35,7 @@ class Decorators:
         return wrapper
 
     def find_roots(variable_a, variable_b, variable_c):
-        
+
         discriminant = variable_b * variable_b - 4 * variable_a * variable_c
         square_value = math.sqrt(abs(discriminant))
         if discriminant > 0:
@@ -54,7 +54,6 @@ class Decorators:
             x2 = - variable_b / (2 * variable_a), " - i", square_value
             return (x1, x2)
 
-
     def csv_generate(file_name):
 
         with open(file_name, 'w', newline='') as file_csv:
@@ -65,14 +64,13 @@ class Decorators:
 
                 writer.writerow([random.randint(1, 100) for j in range(3)])
 
-
     def log_decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
             with open('info.json', 'a') as f:
                 json.dump({'func': func.__name__, 'args': args,
-                        'kwargs': kwargs, 'result': result}, f)
+                           'kwargs': kwargs, 'result': result}, f)
             return result
         return wrapper
 
