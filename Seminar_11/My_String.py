@@ -14,6 +14,7 @@ class MyString(str):
 
 if __name__ == '__main__':
 
+
     myString = MyString('текст автора', 'Имя автора')
 
     print(f"\nИмя автора - {myString.line_writer}")
