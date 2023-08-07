@@ -28,7 +28,7 @@ class Student:
 
         if self.lessons is not None:
             raise AttributeError(f'Список предметов')
-        
+
         self._lessons = {"lessons": {}}
 
         with open(less, 'r', encoding='utf-8') as csv_file:
@@ -40,22 +40,21 @@ class Student:
                 self._lessons["lessons"][row[0]] = {"grade": [],
                                                     "testing": [],
                                                     "middle_grade_testing": None}
-                
+
         self._lessons["middle_grade"] = None
-        
 
     def grade(self, name_of_lesson: str, number: int, type_est: str = "lesson"):
 
         if name_of_lesson not in self.lessons["lessons"].keys():
 
             raise AttributeError("Урок отсутствует")
-        
+
         if type_est == "lesson":
 
             if number < 1 or number > 5:
 
                 raise ValueError("Диапазона оценки от 1 до 5)")
-            
+
             self.lessons["lessons"][name_of_lesson]["grade"].append(number)
             self.lessons["middle_grade"] = self.middle_grade(self.lessons)
 
@@ -63,10 +62,11 @@ class Student:
 
             if number < 0 or number > 100:
 
-                raise ValueError("Диапазона оценки тестирования от 0 до 100 баллов")
-            
+                raise ValueError(
+                    "Диапазона оценки тестирования от 0 до 100 баллов")
+
             self.lessons["lessons"][name_of_lesson]["testing"].append(number)
-            
+
             self.lessons["lessons"][name_of_lesson]["middle_grade_testing"] = \
                 reduce(lambda x, y: x + y, self.lessons["lessons"][name_of_lesson]["testing"]) / \
                 len(self.lessons["lessons"][name_of_lesson]["testing"])
@@ -74,7 +74,8 @@ class Student:
     @staticmethod
     def middle_grade(lessons: dict):
         all_estimates = []
-        [all_estimates.extend(lessons["lessons"][name]["grade"]) for name in lessons["lessons"]]
+        [all_estimates.extend(lessons["lessons"][name]["grade"])
+         for name in lessons["lessons"]]
         return reduce(lambda x, y: x + y, all_estimates) / len(all_estimates)
 
     def __repr__(self):
@@ -86,5 +87,3 @@ class Student:
             full_name_student += f'{key} - {value["middle_grade_testing"]} средний бал по тестированию\n'
 
         return full_name_student
-
-
