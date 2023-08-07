@@ -6,8 +6,9 @@ class Main:
 
     def main():
 
-        name_student = Students.Student("Иванов", "Иван", "Иванович", Path('lessons.csv'))
-        
+        name_student = Students.Student(
+            "Иванов", "Иван", "Иванович", Path('lessons.csv'))
+
         name_student.grade("Философия", 4)
         name_student.grade("Философия", 3)
         name_student.grade("Высшая Математика", 4)
@@ -22,10 +23,7 @@ class Main:
         name_student.grade("Информатика", 96, "testing")
         name_student.grade("Информатика", 87, "testing")
 
-
         print(name_student)
-
-
 
     if __name__ == '__main__':
         main()
