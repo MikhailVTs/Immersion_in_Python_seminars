@@ -1,5 +1,6 @@
 from ErrorRectangle import Error_side_a, Error_side_b, Error_side_a_not_null, Error_side_b_not_null, Error_side_a_negative_number, Error_side_b_negative_number
 
+
 class Rectangle:
 
     def __init__(self, side_a: int, side_b: int = None):
@@ -8,17 +9,16 @@ class Rectangle:
             raise Error_side_a()
         if side_b != int(side_b):
             raise Error_side_b()
-        
+
         if side_a == 0:
             raise Error_side_a_not_null()
         if side_b == 0:
             raise Error_side_b_not_null()
-        
+
         if side_a < 0:
             raise Error_side_a_negative_number()
         if side_b < 0:
             raise Error_side_b_negative_number()
-
 
         self.side_a = side_a
         self.side_b = side_b if side_b is not None else side_a
