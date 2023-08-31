@@ -4,21 +4,15 @@ from ErrorRectangle import Error_side_a, Error_side_b, Error_side_a_not_null, Er
 import logging
 
 
-
-
-
-
 class Rectangle:
-
 
     def __init__(self, side_a: int, side_b: int = None):
 
-
-        logging.basicConfig(filename='Logging.log',level=logging.DEBUG,format='%(asctime)s - %(levelname)s - %(lineno)d - %(message)s')
+        logging.basicConfig(filename='Logging.log', level=logging.DEBUG,
+                            format='%(asctime)s - %(levelname)s - %(lineno)d - %(message)s')
 
         logging.info("Программа запущена!!!")
 
-        
         if side_a != int(side_a):
             logging.error(Error_side_a())
             raise Error_side_a()
@@ -73,7 +67,6 @@ class Rectangle:
 
 if __name__ == '__main__':
 
-
     rectangle_1 = Rectangle(10, 30)
     rectangle_2 = Rectangle(45, -30)
 
@@ -82,7 +75,3 @@ if __name__ == '__main__':
 
     resultSub = rectangle_1 - rectangle_2
     print(f"\n{resultSub.side_a, resultSub.side_b}\n")
-
-    
-
-
